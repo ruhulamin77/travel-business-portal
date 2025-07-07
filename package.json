@@ -1,0 +1,30 @@
+{
+  "name": "travel-business-portal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.81.5",
+    "axios": "^1.10.0",
+    "firebase": "^11.10.0",
+    "next": "14.2.30",
+    "react": "^18",
+    "react-datepicker": "^8.4.0",
+    "react-dom": "^18",
+    "react-hook-form": "^7.59.0",
+    "react-icons": "^5.5.0",
+    "react-toastify": "^11.0.5",
+    "zustand": "^5.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.30",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}
