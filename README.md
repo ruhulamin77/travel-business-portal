@@ -3,7 +3,7 @@
 A modern travel business portal built with Next.js, React, Firebase, Zustand, and Tailwind CSS. This project allows users to search for flights, explore tour packages, book trips, and manage their travel plans with a clean and responsive UI.
 
 **Live Demo:**  
-👉 [https://travel-business-portal-five.vercel.app/](https://travel-business-portal-five.vercel.app/)
+👉 [https://travel-business-portal-theta.vercel.app/](https://travel-business-portal-theta.vercel.app/)
 
 ## Features
 
@@ -102,10 +102,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 - Customize styles in `tailwind.config.js` or add your own CSS.
 - Add more features or integrations as needed!
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ---
 
 **Travel Business Portal** © 2025 — Built with ❤️ by Ruhul Amin.
+<sub>Demo Firebase Project ID: <b>burj-al-arab-2ad92</b></sub>
