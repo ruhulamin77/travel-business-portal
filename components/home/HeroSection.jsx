@@ -10,7 +10,7 @@ export default function HeroSection() {
           Explore The World Around You
         </h1>
 
-        <p className="max-w-2xl text-center md:text-2xl mx-auto">
+        <p className="max-w-2xl text-center md:text-2xl mx-auto bg-black/30 rounded p-3 md:p-5">
           Take a break from stress of everyday life, plan trips and explore your
           favorite destinations.
         </p>
