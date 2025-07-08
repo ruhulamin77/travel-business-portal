@@ -1,8 +1,9 @@
 import { formatDOB } from '@/lib/formatDOB';
-import { getPassengerLabel } from '@/lib/getPassengerLabel';
 
 export default function Review({ passengerDetails, onBack, onNext }) {
+  // count same type of passengers
   const typeCounters = {};
+
   return (
     <div className="">
       <h2 className="text-xl font-bold mb-4">Review Details</h2>
