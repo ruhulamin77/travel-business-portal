@@ -25,6 +25,7 @@ A modern travel business portal built with Next.js, React, Firebase, Zustand, an
 - [React Hook Form](https://react-hook-form.com/)
 - [TanStack Query](https://tanstack.com/query/latest)
 - [React DatePicker](https://reactdatepicker.com/)
+- [Zod](https://zod.dev/)
 
 ## Getting Started
 

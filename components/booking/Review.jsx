@@ -3,17 +3,15 @@ import { formatDOB } from '@/utils/formatDOB';
 export default function Review({ passengerDetails, onBack, onNext }) {
   // count same type of passengers
   const typeCounters = {};
-
   return (
     <div className="">
       <h2 className="text-xl font-bold mb-4">Review Details</h2>
       {passengerDetails.map((p, i) => {
-        typeCounters[p.type] = (typeCounters[p.type] || 0) + 1;
+        typeCounters[p?.type] = (typeCounters[p?.type] || 0) + 1;
         return (
           <div key={i} className="border rounded p-4 mb-4 bg-gray-50">
             <h3 className="font-semibold mb-2">
-              {' '}
-              {`${p.type.toUpperCase()} ${typeCounters[p.type]}`}
+              {`${p?.type?.toUpperCase()} ${typeCounters[p?.type]}`}
             </h3>
             <p>Title: {p?.title}</p>
             <p>First name: {p?.firstName}</p>
@@ -22,7 +20,7 @@ export default function Review({ passengerDetails, onBack, onNext }) {
             <p>Date of birth: {formatDOB(p?.dob) || ''}</p>
             <p>Country: {p?.country || 'N/A'}</p>
             <p>Email: {p?.email || 'N/A'}</p>
-            <p>Phone Number: {p?.phone || 'N/A'}</p>
+            <p>Passport Number: {p?.passport || 'N/A'}</p>
           </div>
         );
       })}

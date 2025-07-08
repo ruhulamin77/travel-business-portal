@@ -6,12 +6,37 @@ import DatePicker from 'react-datepicker';
 import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import Field from '../common/Field';
 import SelectedFlightDetails from './SelectedFlightDetails';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 export default function BookingForm({
   passengerDetails,
   setPassengerDetails,
   onNext,
 }) {
+  const PassengersSchema = z.object({
+    passengers: z.array(
+      z.object({
+        type: z.string(),
+        title: z.string().min(1, 'Title is required'),
+        firstName: z.string().min(1, 'First name is required'),
+        lastName: z.string().min(1, 'Last name is required'),
+        gender: z.string().min(1, 'Gender is required'),
+        dob: z
+          .date({ required_error: 'Date of Birth is required' })
+          .max(new Date(), 'Date of Birth cannot be in the future'),
+        country: z.string(),
+        email: z
+          .string()
+          .refine(
+            (val) => !val || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
+            'Invalid email address'
+          ),
+        passport: z.string().optional(),
+      })
+    ),
+  });
+
   const {
     register,
     handleSubmit,
@@ -20,6 +45,7 @@ export default function BookingForm({
     reset,
     formState: { errors },
   } = useForm({
+    resolver: zodResolver(PassengersSchema),
     defaultValues: {
       passengers: passengerDetails || [],
     },
@@ -66,9 +92,7 @@ export default function BookingForm({
                   error={errors.passengers?.[index]?.title}
                 >
                   <select
-                    {...register(`passengers[${index}].title`, {
-                      required: 'Title is required',
-                    })}
+                    {...register(`passengers[${index}].title`)}
                     className={`input-field border p-2 rounded ${
                       errors.passengers?.[index]?.title
                         ? 'border-red-500'
@@ -90,9 +114,7 @@ export default function BookingForm({
                   error={errors.passengers?.[index]?.firstName}
                 >
                   <input
-                    {...register(`passengers[${index}].firstName`, {
-                      required: 'First Name is required',
-                    })}
+                    {...register(`passengers[${index}].firstName`)}
                     className={`input-field border p-2 rounded ${
                       errors.passengers?.[index]?.firstName
                         ? 'border-red-500'
@@ -111,9 +133,7 @@ export default function BookingForm({
                   error={errors.passengers?.[index]?.lastName}
                 >
                   <input
-                    {...register(`passengers[${index}].lastName`, {
-                      required: 'Last Name is required',
-                    })}
+                    {...register(`passengers[${index}].lastName`)}
                     className={`input-field border p-2 rounded ${
                       errors.passengers?.[index]?.lastName
                         ? 'border-red-500'
@@ -131,9 +151,7 @@ export default function BookingForm({
                   error={errors.passengers?.[index]?.gender}
                 >
                   <select
-                    {...register(`passengers[${index}].gender`, {
-                      required: 'Gender is required',
-                    })}
+                    {...register(`passengers[${index}].gender`)}
                     className={`input-field border p-2 rounded ${
                       errors.passengers?.[index]?.gender
                         ? 'border-red-500'
@@ -152,15 +170,6 @@ export default function BookingForm({
                 <Controller
                   control={control}
                   name={`passengers[${index}].dob`}
-                  rules={{
-                    required: 'Date of Birth is required',
-                    validate: (value) => {
-                      if (value && value > new Date()) {
-                        return 'Date of Birth cannot be in the future';
-                      }
-                      return true;
-                    },
-                  }}
                   render={({ field, fieldState }) => (
                     <Field
                       label="Date of Birth*"
@@ -207,21 +216,20 @@ export default function BookingForm({
                 <Field
                   label="Email"
                   htmlFor={`passengers[${index}].email`}
-                  error={errors.passengers?.[index]?.passport}
+                  error={errors.passengers?.[index]?.email}
                 >
                   <input
+                    type="email"
                     {...register(`passengers[${index}].email`)}
                     className="input-field border p-2 rounded"
                     placeholder="Email"
-                    id={`passengers[${index}].email`}
-                    name={`passengers[${index}].email`}
                   />
                 </Field>
 
                 {field.type !== 'infant' && field.type !== 'child' && (
                   <Field
                     label="Passport Number"
-                    htmlFor={`passengers[${index}].phone`}
+                    htmlFor={`passengers[${index}].passport`}
                     error={errors.passengers?.[index]?.passport}
                   >
                     <input
@@ -229,8 +237,8 @@ export default function BookingForm({
                       className="input-field border p-2 rounded"
                       type="text"
                       placeholder="Passport Number"
-                      id={`passengers[${index}].phone`}
-                      name={`passengers[${index}].phone`}
+                      id={`passengers[${index}].passport`}
+                      name={`passengers[${index}].passport`}
                     />
                   </Field>
                 )}

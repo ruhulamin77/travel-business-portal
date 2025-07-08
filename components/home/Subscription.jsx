@@ -13,7 +13,7 @@ export default function Subscription() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="flex-1 px-3 py-2  rounded"
+            className="flex-1 px-3 py-2 outline-none rounded"
           />
           <button className="btn-primary">Subscribe</button>
         </div>

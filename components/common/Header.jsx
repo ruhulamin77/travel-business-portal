@@ -100,14 +100,7 @@ export default function Header() {
 
           {/* Desktop Get Start Button */}
           <div className="hidden md:block">
-            {userLoading && !user ? (
-              <button
-                className="btn-primary min-w-20 min-h-8 text-white flex justify-center items-center"
-                disabled
-              >
-                <div className="w-5 h-5 animate-spin border border-white border-t-transparent rounded-full"></div>
-              </button>
-            ) : !userLoading && user ? (
+            {user ? (
               <div className="flex items-center gap-4">
                 <p className="rounded-full text-white bg-gray-500 py-0 px-2 border">
                   {user.email}

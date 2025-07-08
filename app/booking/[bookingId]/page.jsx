@@ -31,9 +31,7 @@ export default function BookingPage({ params: { bookingId } }) {
     const childrenCount = parseInt(searchPayload?.passenger?.children || 0);
     const infantCount = parseInt(searchPayload?.passenger?.infant || 0);
 
-    const total = adultCount + childrenCount + infantCount;
-
-    if (total && passengerDetails.length === 0) {
+    if (passengerDetails.length === 0) {
       const adultDetails = Array.from({ length: adultCount }, () => ({
         type: 'adult',
       }));
