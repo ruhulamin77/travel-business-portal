@@ -1,7 +1,7 @@
 'use client';
-import { dateToTime } from '@/lib/dateToTime';
-import { formatMinutesToHours } from '@/lib/formatMinutesToHours';
 import { useSearchStore } from '@/store/useSearchStore';
+import { dateToTime } from '@/utils/dateToTime';
+import { formatMinutesToHours } from '@/utils/formatMinutesToHours';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaPlane } from 'react-icons/fa';

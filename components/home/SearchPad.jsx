@@ -1,6 +1,6 @@
 'use client';
-import { getTwoDaysAheadISO } from '@/lib/getTwoDaysAheadISO';
 import { useSearchStore } from '@/store/useSearchStore';
+import { getTwoDaysAheadISO } from '@/utils/getTwoDaysAheadISO';
 import { useRouter } from 'next/navigation';
 import DatePicker from 'react-datepicker';
 import { Controller, useForm } from 'react-hook-form';

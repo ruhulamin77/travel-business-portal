@@ -2,10 +2,10 @@
 
 import { useSearchStore } from '@/store/useSearchStore';
 import { useEffect } from 'react';
+import DatePicker from 'react-datepicker';
 import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import Field from '../Field';
 import SelectedFlightDetails from './SelectedFlightDetails';
-import DatePicker from 'react-datepicker';
 
 export default function BookingForm({
   passengerDetails,

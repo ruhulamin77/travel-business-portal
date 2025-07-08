@@ -1,4 +1,4 @@
-import { formatDOB } from '@/lib/formatDOB';
+import { formatDOB } from '@/utils/formatDOB';
 
 export default function Review({ passengerDetails, onBack, onNext }) {
   // count same type of passengers

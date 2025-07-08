@@ -1,4 +1,4 @@
-import { formatToLongDate } from '@/lib/formatToLongDate';
+import { formatToLongDate } from '@/utils/formatToLongDate';
 
 export default function SelectedFlightDetails({ selectedFlight }) {
   return (
