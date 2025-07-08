@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import DatePicker from 'react-datepicker';
 import { Controller, useForm } from 'react-hook-form';
 import { FaCalendarAlt } from 'react-icons/fa';
-import Field from '../Field';
+import Field from '../common/Field';
 import PassengerSelector from './PassengerSelector';
 
 import { FaLocationDot } from 'react-icons/fa6';

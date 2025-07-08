@@ -4,7 +4,7 @@ import { useSearchStore } from '@/store/useSearchStore';
 import { useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { Controller, useFieldArray, useForm } from 'react-hook-form';
-import Field from '../Field';
+import Field from '../common/Field';
 import SelectedFlightDetails from './SelectedFlightDetails';
 
 export default function BookingForm({
@@ -98,6 +98,7 @@ export default function BookingForm({
                         ? 'border-red-500'
                         : 'border-gray-200'
                     }`}
+                    type="text"
                     placeholder="First Name"
                     id={`passengers[${index}].firstName`}
                     name={`passengers[${index}].firstName`}
@@ -118,6 +119,7 @@ export default function BookingForm({
                         ? 'border-red-500'
                         : 'border-gray-200'
                     }`}
+                    type="text"
                     placeholder="Last Name"
                     id={`passengers[${index}].lastNam`}
                     name={`passengers[${index}].lastName`}
@@ -208,8 +210,14 @@ export default function BookingForm({
                   error={errors.passengers?.[index]?.passport}
                 >
                   <input
-                    {...register(`passengers[${index}].email`)}
+                    {...register(`passengers[${index}].email`, {
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: 'Invalid email address',
+                      },
+                    })}
                     className="input-field border p-2 rounded"
+                    type="email"
                     placeholder="Email"
                     id={`passengers[${index}].email`}
                     name={`passengers[${index}].email`}
@@ -218,14 +226,15 @@ export default function BookingForm({
 
                 {field.type !== 'infant' && field.type !== 'child' && (
                   <Field
-                    label="Phone Number"
+                    label="Passport Number"
                     htmlFor={`passengers[${index}].phone`}
-                    error={errors.passengers?.[index]?.phone}
+                    error={errors.passengers?.[index]?.passport}
                   >
                     <input
-                      {...register(`passengers[${index}].phone`)}
+                      {...register(`passengers[${index}].passport`)}
                       className="input-field border p-2 rounded"
-                      placeholder="Phone Number"
+                      type="text"
+                      placeholder="Passport Number"
                       id={`passengers[${index}].phone`}
                       name={`passengers[${index}].phone`}
                     />

@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Header from '@/components/common/Header';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import { ToastContainer } from 'react-toastify';
-import AuthInitProvider from '@/components/AuthInitProvider';
+import AuthInitProvider from '@/components/auth/AuthInitProvider';
 
 export const metadata = {
   title: 'Travel Business Portal',

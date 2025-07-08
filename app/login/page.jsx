@@ -1,10 +1,10 @@
 'use client';
 
+import Field from '@/components/common/Field';
 import Loading from '@/components/common/Loading';
-import Field from '@/components/Field';
 import { auth } from '@/firebase/config';
 import useAuthStore from '@/store/useAuthStore';
-import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -53,7 +53,7 @@ export default function LoginPage(s) {
   }
 
   return (
-    <div className="flex-1 flex justify-center items-center bg-slate-100 ">
+    <div className="flex-1 flex justify-center items-center bg-slate-100 min-h-screen">
       <div className="max-w-lg mx-auto border p-5 rounded-lg bg-white shadow-md">
         <h2 className="text-2xl font-bold mb-4">Login</h2>
         <form

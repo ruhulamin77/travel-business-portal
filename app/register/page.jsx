@@ -1,18 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { auth } from '@/firebase/config';
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-} from 'firebase/auth';
-import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import Field from '@/components/Field';
-import Header from '@/components/common/Header';
-import Link from 'next/link';
-import useAuthStore from '@/store/useAuthStore';
+import Field from '@/components/common/Field';
 import Loading from '@/components/common/Loading';
+import { auth } from '@/firebase/config';
+import useAuthStore from '@/store/useAuthStore';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -53,7 +49,7 @@ export default function RegisterPage() {
 
   return (
     <>
-      <div className="flex-1 flex justify-center items-center bg-slate-100">
+      <div className="flex-1 flex justify-center items-center bg-slate-100 min-h-screen">
         <div className="max-w-md mx-auto border p-4 rounded-lg  bg-white shadow-sm">
           <h2 className="text-2xl font-bold mb-4">Register</h2>
           <form
