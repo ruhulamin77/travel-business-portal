@@ -6,7 +6,6 @@ import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import Field from '../Field';
 import SelectedFlightDetails from './SelectedFlightDetails';
 import DatePicker from 'react-datepicker';
-import { getPassengerLabel } from '@/lib/getPassengerLabel';
 
 export default function BookingForm({
   passengerDetails,
@@ -26,6 +25,7 @@ export default function BookingForm({
     },
   });
 
+  // reset the passengers array if somehow default value not set
   useEffect(() => {
     if (passengerDetails.length) {
       reset({ passengers: passengerDetails });
@@ -44,16 +44,20 @@ export default function BookingForm({
     onNext();
   };
 
+  // count same type of passengers
+  const typeCounters = {};
+
   return (
     <div className="container">
       <SelectedFlightDetails selectedFlight={selectedFlight} />
       <h2 className="text-xl font-bold mb-4">Passenger Details</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         {fields.map((field, index) => {
+          typeCounters[field.type] = (typeCounters[field.type] || 0) + 1;
           return (
             <div key={field.id} className="border rounded p-4 mb-4 bg-gray-50">
               <h3 className="font-semibold mb-2">
-                {getPassengerLabel(field.type)}
+                {`${field.type.toUpperCase()} ${typeCounters[field.type]}`}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <Field
