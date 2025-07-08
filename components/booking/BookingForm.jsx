@@ -210,14 +210,8 @@ export default function BookingForm({
                   error={errors.passengers?.[index]?.passport}
                 >
                   <input
-                    {...register(`passengers[${index}].email`, {
-                      pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: 'Invalid email address',
-                      },
-                    })}
+                    {...register(`passengers[${index}].email`)}
                     className="input-field border p-2 rounded"
-                    type="email"
                     placeholder="Email"
                     id={`passengers[${index}].email`}
                     name={`passengers[${index}].email`}
