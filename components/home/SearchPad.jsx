@@ -46,7 +46,9 @@ export default function SearchPad() {
       ...passenger,
     };
 
-    router.push(`/search?${new URLSearchParams(query).toString()}`);
+    const params = new URLSearchParams(query);
+
+    router.push(`/search?${params.toString()}`);
   };
 
   return (

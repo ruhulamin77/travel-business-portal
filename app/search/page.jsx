@@ -30,7 +30,7 @@ export default function SearchResultPage({ searchParams }) {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['flights', payload],
     queryFn: () => fetchFlights(payload),
-    // staleTime: 5 * 60 * 1000, // 5 minutes
+    staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
   if (isLoading) return <Loading context="Loading Flights..." />;
