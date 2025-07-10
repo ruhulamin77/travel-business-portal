@@ -54,7 +54,7 @@ export default function LoginPage(s) {
 
   return (
     <div className="flex-1 flex justify-center items-center bg-slate-100 min-h-screen">
-      <div className="max-w-lg mx-auto border p-5 rounded-lg bg-white shadow-md">
+      <div className="max-w-md mx-auto border p-5 rounded-lg bg-white shadow-md">
         <h2 className="text-2xl font-bold mb-4">Login</h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -92,6 +92,17 @@ export default function LoginPage(s) {
           <Link href="/register" className="text-blue-500">
             Register
           </Link>
+        </p>
+        <p className="rounded p-2 shadow-md bg-gray-100 max-w-xs text-green-500 font-semibold">
+          <p className="text-sm pb-2 font-normal text-gray-500">
+            You can register a new user or use the below:
+          </p>
+          <p>
+            <span className="text-gray-500">Email:</span> test@email.com
+          </p>
+          <p>
+            <span className="text-gray-500">Password:</span> 123456
+          </p>
         </p>
       </div>
     </div>
